@@ -1,3 +1,4 @@
+package cards;
 
 
 import java.util.*;
@@ -26,7 +27,7 @@ public class Card {
 	private final Rank rank;
 	private final Suit suit;
 
-	private Card(Rank rank, Suit suit) {
+	Card(Rank rank, Suit suit) {
 		this.rank = rank;
 		this.suit = suit;
 	}
@@ -58,5 +59,12 @@ public class Card {
 
 	public static ArrayList<Card> newDeck() {
 		return new ArrayList<Card>(protoDeck); // Return copy of prototype deck
+	}
+
+	public String color() {
+		if(this.suit().equals("HEARTS") || this.suit().equals("DIAMONDS")){
+			return "red";
+		}
+		return "black";
 	}
 }
