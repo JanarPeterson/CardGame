@@ -5,35 +5,34 @@ import cards.Card.Suit;
 
 public class Game {
 	public static void main(String[] args) {
-		Card choiceCard = new Card(Rank.THREE, Suit.DIAMONDS
-				);
-		System.out.println("Finale score is: "+playCards(choiceCard));
-		
-		
+		Card choiceCard = new Card(Rank.THREE, Suit.DIAMONDS);
+		Card randomCard = Card.generateRandomCard();
+		System.out.println("Finale score is: "+playCards(choiceCard, randomCard));
+
 	}
 	
-	public static int playCards(Card playerCard){
+	public static int playCards(Card playerCard, Card computerCard){
 		int score = 0;
-		Card randomCard = new Card(Rank.THREE, Suit.CLUBS);
+		System.out.println(computerCard);
 		
-		if((playerCard.isRed() && randomCard.isRed()) || (!playerCard.isRed() && !randomCard.isRed())){
+		if((playerCard.isRed() && computerCard.isRed()) || (!playerCard.isRed() && !computerCard.isRed())){
 			score += 2;
 			System.out.println("A - " + score);
 		}
 		
-		if(randomCard.suitDif(playerCard)){
+		if(computerCard.suitDif(playerCard)){
 			 score += 3;
 			 System.out.println("B - " + score);
 		}
-		if(randomCard.sameRank(playerCard)){
+		if(computerCard.sameRank(playerCard)){
 			 score += 15;
 			 System.out.println("C - " + score);
 		}
-		if(randomCard.sameCard(playerCard)){
+		if(computerCard.sameCard(playerCard)){
 			score += 25;
 			System.out.println("D - " + score);
 		}
-		if(randomCard.rankDif(playerCard) ){
+		if(computerCard.rankDif(playerCard) ){
 			 score += 4;
 			 System.out.println("E - "+ score);
 		}

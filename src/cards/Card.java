@@ -7,10 +7,13 @@ import cards.Card.Rank;
 import cards.Card.Suit;
 
 public class Card {
+	static Random random = new Random();
 public static void main(String[] args) {
 	Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
 	Card card2 = new Card(Rank.SIX, Suit.DIAMONDS);
 	System.out.println(card2.rankDif(card1));
+	
+	
 	
 }
 	public int getCardValue() {
@@ -79,11 +82,7 @@ public static void main(String[] args) {
 	}
 	
 	public boolean rankDif(Card card1){
-		//added test comment and changed one test name
-		if(this.getCardValue() - card1.getCardValue() <=3 && this.getCardValue() - card1.getCardValue() >=-3){
-			return true; //change this to true
-		}
-		return false;
+		return Math.abs(this.getCardValue() - card1.getCardValue()) <= 3;
 	}
 	
 	public boolean suitDif(Card card){
@@ -106,4 +105,10 @@ public static void main(String[] args) {
 		}
 		return false;
 	}
+	
+	public static Card generateRandomCard(){
+		
+		return newDeck().get(random.nextInt(newDeck().size()));
+	}
+	
 }
