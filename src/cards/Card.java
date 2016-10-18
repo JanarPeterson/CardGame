@@ -83,6 +83,13 @@ public static void main(String[] args) {
 		if(this.getCardValue() - card1.getCardValue() <=3 && this.getCardValue() - card1.getCardValue() >=-3){
 			return true; //change this to true
 		}
-		return true;
+		return false;
+	}
+	
+	public boolean suitDif(Card card){
+		if (this.suit.equals(card.suit)) {
+			return true;
+		}
+		return false;
 	}
 }
