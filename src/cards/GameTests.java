@@ -23,7 +23,7 @@ public class GameTests {
 		assertThat(card.rankDif(randomCard) ,is(true));
 	}
 	@Test
-	public void isSameMast(){
+	public void isSameSuitt(){
 		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
 		assertThat(card.mastDif(randomCard) ,is(false));
 	}
