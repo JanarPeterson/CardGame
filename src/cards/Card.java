@@ -3,8 +3,16 @@ package cards;
 
 import java.util.*;
 
-public class Card {
+import cards.Card.Rank;
+import cards.Card.Suit;
 
+public class Card {
+public static void main(String[] args) {
+	Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
+	Card card2 = new Card(Rank.SIX, Suit.DIAMONDS);
+	System.out.println(card2.rankDif(card1));
+	
+}
 	public int getCardValue() {
 		return rank().value;
 	}
@@ -68,5 +76,13 @@ public class Card {
 		}
 		return color;
 		
+	}
+	
+	public boolean rankDif(Card card1){
+		//added test comment and changed one test name
+		if(this.getCardValue() - card1.getCardValue() <=3 && this.getCardValue() - card1.getCardValue() >=-3){
+			return true; //change this to true
+		}
+		return true;
 	}
 }
