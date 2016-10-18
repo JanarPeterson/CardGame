@@ -5,13 +5,14 @@ import cards.Card.Suit;
 
 public class Game {
 	public static void main(String[] args) {
+		Game newGame = new Game();
 		Card choiceCard = new Card(Rank.THREE, Suit.DIAMONDS);
 		Card randomCard = Card.generateRandomCard();
-		System.out.println("Finale score is: "+playCards(choiceCard, randomCard));
+		System.out.println("Finale score is: " + newGame.playCards(choiceCard, randomCard));
 
 	}
 	
-	public static int playCards(Card playerCard, Card computerCard){
+	public int playCards(Card playerCard, Card computerCard){
 		int score = 0;
 		System.out.println(computerCard);
 		

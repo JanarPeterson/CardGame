@@ -107,7 +107,6 @@ public static void main(String[] args) {
 	}
 	
 	public static Card generateRandomCard(){
-		
 		return newDeck().get(random.nextInt(newDeck().size()));
 	}
 	

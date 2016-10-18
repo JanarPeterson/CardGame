@@ -48,6 +48,7 @@ public class GameTests {
 		Card card2 = new Card(Rank.THREE, Suit.HEARTS);
 		assertThat(game.playCards(card1, card2), is(6));
 	}
+	
 	@Test
 	public void bestGameResult(){
 		Card card1 = new Card(Rank.SIX, Suit.DIAMONDS);
