@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class GameTests {
 
-	Card randomCard = new Card(Rank.SIX, Suit.SPADES);
+	Card randomCard = new Card(Rank.THREE, Suit.CLUBS);
 	@Test
 	public void isSameColor(){
 		Card card = new Card(Rank.FIVE, Suit.SPADES);
@@ -30,7 +30,12 @@ public class GameTests {
 	@Test
 	public void isSameRank(){
 		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
-		assertThat(card.sameRank(randomCard) ,is(false));
+		assertThat(card.sameRank(randomCard) ,is(true));
+	}
+	@Test
+	public void isSameCard(){
+		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
+		assertThat(card.sameCard(randomCard) ,is(false));
 	}
 	
 }

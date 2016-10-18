@@ -92,4 +92,18 @@ public static void main(String[] args) {
 		}
 		return false;
 	}
+	
+	public boolean sameRank(Card card){
+		if (this.getCardValue() == card.getCardValue() && suitDif(card) == false) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean sameCard(Card card){
+		if(this.getCardValue() == card.getCardValue() && suitDif(card)){
+			return true;
+		}
+		return false;
+	}
 }
