@@ -61,10 +61,12 @@ public class Card {
 		return new ArrayList<Card>(protoDeck); // Return copy of prototype deck
 	}
 
-	public String color() {
-		if(this.suit().equals("HEARTS") || this.suit().equals("DIAMONDS")){
-			return "red";
+	public boolean isRed() {
+		boolean color = false;
+		if(this.suit().equals(Suit.HEARTS) || this.suit().equals(Suit.DIAMONDS)){
+			color = true;
 		}
-		return "black";
+		return color;
+		
 	}
 }
