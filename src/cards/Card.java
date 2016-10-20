@@ -80,8 +80,9 @@ public class Card {
 
 	}
 
-	public boolean rankDif(Card card1) {
-		return Math.abs(this.getCardValue() - card1.getCardValue()) <= 3;
+	public int rankDif(Card card1) {
+		int difference = Math.abs(this.getCardValue() - card1.getCardValue());
+		return  15-difference;
 	}
 
 	public boolean suitDif(Card card) {
@@ -89,11 +90,11 @@ public class Card {
 		return this.suit.equals(card.suit);
 	}
 
-	public boolean sameRank(Card card) {
-
-		return this.getCardValue() == card.getCardValue()
-				&& suitDif(card) == false;
-	}
+//	public boolean sameRank(Card card) {
+//
+//		return this.getCardValue() == card.getCardValue()
+//				&& suitDif(card) == false;
+//	}
 
 	public boolean sameCard(Card card) {
 

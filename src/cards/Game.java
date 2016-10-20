@@ -25,19 +25,16 @@ public class Game {
 			 score += 3;
 			 System.out.println("B - " + score);
 		}
-		if(computerCard.sameRank(playerCard)){
-			 score += 15;
-			 System.out.println("C - " + score);
-		}
+//		if(computerCard.sameRank(playerCard)){
+//			 score += 15;
+//			 System.out.println("C - " + score);
+//		}
 		if(computerCard.sameCard(playerCard)){
 			score += 25;
 			System.out.println("D - " + score);
 		}
-		if(computerCard.rankDif(playerCard) ){
-			 score += 4;
-			 System.out.println("E - "+ score);
-		}
-		
+		score += computerCard.rankDif(playerCard);
+		System.out.println(computerCard.rankDif(playerCard));
 		return score;
 	}
 }

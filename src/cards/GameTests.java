@@ -21,17 +21,25 @@ public class GameTests {
 	@Test
 	public void rankDiffIsLessThanThree(){
 		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
-		assertThat(card.rankDif(randomCard) ,is(true));
+		Card card1 = new Card(Rank.THREE, Suit.DIAMONDS);
+		assertThat(card.rankDif(card1) ,is(15));
 	}
 	@Test
 	public void isSameSuit(){
 		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
 		assertThat(card.suitDif(randomCard) ,is(false));
 	}
+//	@Test
+//	public void isSameRank(){
+//		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
+//		assertThat(card.sameRank(randomCard) ,is(true));
+//	}
 	@Test
-	public void isSameRank(){
+	public void rankDifferenceIsCalculatedCorrectly(){
 		Card card = new Card(Rank.THREE, Suit.DIAMONDS);
-		assertThat(card.sameRank(randomCard) ,is(true));
+		Card card1 = new Card(Rank.THREE, Suit.CLUBS);
+		assertThat(card.rankDif(card1) ,is(15));
+		
 	}
 	@Test
 	public void isSameCard(){
@@ -46,13 +54,13 @@ public class GameTests {
 	public void averageGameResult(){
 		Card card1 = new Card(Rank.SIX, Suit.DIAMONDS);
 		Card card2 = new Card(Rank.THREE, Suit.HEARTS);
-		assertThat(game.playCards(card1, card2), is(6));
+		assertThat(game.playCards(card1, card2), is(14));
 	}
 	
 	@Test
 	public void bestGameResult(){
 		Card card1 = new Card(Rank.SIX, Suit.DIAMONDS);
 		Card card2 = new Card(Rank.SIX, Suit.DIAMONDS);
-		assertThat(game.playCards(card1, card2), is(34));
+		assertThat(game.playCards(card1, card2), is(45));
 	}
 }
