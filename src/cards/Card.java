@@ -1,6 +1,5 @@
 package cards;
 
-
 import java.util.*;
 
 import cards.Card.Rank;
@@ -8,23 +7,25 @@ import cards.Card.Suit;
 
 public class Card {
 	static Random random = new Random();
-public static void main(String[] args) {
-	Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
-	Card card2 = new Card(Rank.SIX, Suit.DIAMONDS);
-	System.out.println(card2.rankDif(card1));
-	
-	
-	
-}
+
+	public static void main(String[] args) {
+		Card card1 = new Card(Rank.EIGHT, Suit.DIAMONDS);
+		Card card2 = new Card(Rank.SIX, Suit.DIAMONDS);
+		System.out.println(card2.rankDif(card1));
+
+	}
+
 	public int getCardValue() {
 		return rank().value;
 	}
 
 	public enum Rank {
 
-		DEUCE(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9), TEN(10), JACK(11), QUEEN(12), KING(13), ACE(14);
-		
+		DEUCE(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(
+				9), TEN(10), JACK(11), QUEEN(12), KING(13), ACE(14);
+
 		private int value;
+
 		private Rank(int constValue) {
 			this.value = constValue;
 		}
@@ -73,41 +74,34 @@ public static void main(String[] args) {
 	}
 
 	public boolean isRed() {
-		boolean color = false;
-		if(this.suit().equals(Suit.HEARTS) || this.suit().equals(Suit.DIAMONDS)){
-			color = true;
-		}
-		return color;
-		
+
+		return this.suit().equals(Suit.HEARTS)
+				|| this.suit().equals(Suit.DIAMONDS);
+
 	}
-	
-	public boolean rankDif(Card card1){
+
+	public boolean rankDif(Card card1) {
 		return Math.abs(this.getCardValue() - card1.getCardValue()) <= 3;
 	}
-	
-	public boolean suitDif(Card card){
-		if (this.suit.equals(card.suit)) {
-			return true;
-		}
-		return false;
+
+	public boolean suitDif(Card card) {
+
+		return this.suit.equals(card.suit);
 	}
-	
-	public boolean sameRank(Card card){
-		if (this.getCardValue() == card.getCardValue() && suitDif(card) == false) {
-			return true;
-		}
-		return false;
+
+	public boolean sameRank(Card card) {
+
+		return this.getCardValue() == card.getCardValue()
+				&& suitDif(card) == false;
 	}
-	
-	public boolean sameCard(Card card){
-		if(this.getCardValue() == card.getCardValue() && suitDif(card)){
-			return true;
-		}
-		return false;
+
+	public boolean sameCard(Card card) {
+
+		return this.getCardValue() == card.getCardValue() && suitDif(card);
 	}
-	
-	public static Card generateRandomCard(){
+
+	public static Card generateRandomCard() {
 		return newDeck().get(random.nextInt(newDeck().size()));
 	}
-	
+
 }
